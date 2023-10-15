@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import Brand from "./Brand";
 
 const menuItems = [
   { link: "/", title: "Home" },
@@ -16,9 +17,7 @@ const Navbar = () => {
   return (
     <nav className="flex place-content-center border-b border-gray-200">
       <div className="flex w-full max-w-1140 items-center justify-between py-5">
-        <Link href={"/"} className="text-blue-500 font-medium text-[26px]">
-          Stay<span className="text-blue-900">cation.</span>
-        </Link>
+        <Brand />
 
         <ul className="flex gap-8">
           {menuItems.map((item, index) => (
@@ -27,7 +26,7 @@ const Navbar = () => {
                 href={item.link}
                 className={`${
                   pathname === item.link ? "text-blue-500" : "text-blue-900"
-                }`}
+                } hover:text-blue-500 transition-all duration-300`}
               >
                 {item.title}
               </Link>
