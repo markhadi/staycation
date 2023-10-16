@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply min-h-screen bg-white text-base leading-normal;
+  @apply min-h-screen bg-white text-sm leading-normal md:text-base transition-all duration-300;
 }
 
 .menuOpenMobile {
