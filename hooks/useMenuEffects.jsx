@@ -7,6 +7,14 @@ export function useMenuEffects(
   setIsDesktop
 ) {
   useEffect(() => {
+    const checkIsDesktop = () => {
+      if (typeof window !== "undefined") {
+        setIsDesktop(window.innerWidth > breakpoint);
+      }
+    };
+
+    checkIsDesktop();
+
     const handleResize = () => {
       setIsMenuOpen(false);
       setIsDesktop(window.innerWidth > breakpoint);

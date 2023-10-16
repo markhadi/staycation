@@ -1,24 +1,14 @@
 "use client";
 
-import { usePathname } from "next/navigation";
 import Brand from "../Brand";
 import { useState } from "react";
 import MobileMenuIcons from "./MobileMenuIcons";
-import MenuItem from "./MenuItem";
 import { useMenuEffects } from "@/hooks/useMenuEffects";
-
-const menuItems = [
-  { link: "/", title: "Home" },
-  { link: "/browse", title: "Browse By" },
-  { link: "/stories", title: "Stories" },
-  { link: "/agents", title: "Agents" },
-];
+import Menu from "./Menu";
 
 const Navbar = () => {
-  const pathname = usePathname();
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 640);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -37,7 +27,9 @@ const Navbar = () => {
 
         <MobileMenuIcons isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
 
-        <ul
+        <Menu closeMenu={closeMenu} openMenu={isMenuOpen} desktop={isDesktop} />
+
+        {/* <ul
           className={` ${
             isDesktop
               ? "menuDesktop"
@@ -54,7 +46,7 @@ const Navbar = () => {
               closeMenu={closeMenu}
             />
           ))}
-        </ul>
+        </ul> */}
       </div>
     </nav>
   );
