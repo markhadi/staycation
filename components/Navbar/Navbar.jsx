@@ -24,29 +24,8 @@ const Navbar = () => {
     <nav className="flex place-content-center border-b border-gray-200">
       <div className="flex w-full max-w-1140 items-center justify-between py-5 px-6 md:px-0">
         <Brand />
-
         <MobileMenuIcons isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
-
         <Menu closeMenu={closeMenu} openMenu={isMenuOpen} desktop={isDesktop} />
-
-        {/* <ul
-          className={` ${
-            isDesktop
-              ? "menuDesktop"
-              : isMenuOpen
-              ? "menuOpenMobile"
-              : "hideMenu"
-          } `}
-        >
-          {menuItems.map((item, index) => (
-            <MenuItem
-              key={index}
-              item={item}
-              pathname={pathname}
-              closeMenu={closeMenu}
-            />
-          ))}
-        </ul> */}
       </div>
     </nav>
   );
