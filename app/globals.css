@@ -1,9 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  @apply min-h-screen bg-white text-sm leading-normal md:text-base transition-all duration-300;
+  @apply min-h-screen bg-white font-poppins text-sm leading-normal sm:text-[16px] transition-all duration-300;
 }
 
 .menuOpenMobile {
@@ -26,4 +32,8 @@ body {
   opacity: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+button {
+  box-shadow: 0px 8px 15px 0px rgba(50, 82, 223, 0.3);
 }
