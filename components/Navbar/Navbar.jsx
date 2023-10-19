@@ -10,19 +10,24 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const Navbar = () => {
+  // State variables to manage the mobile menu and desktop detection
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
 
+  // Function to toggle the mobile menu
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // Function to close the mobile menu
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
 
+  // Custom hook to handle menu effects and detect the desktop view
   useMenuEffects(isMenuOpen, setIsMenuOpen, 640, setIsDesktop);
 
+  // Initialize AOS (Animate On Scroll) library with settings
   useEffect(() => {
     AOS.init({ duration: 500, easing: "ease-in-out" });
   }, []);

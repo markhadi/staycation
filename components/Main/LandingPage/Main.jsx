@@ -1,12 +1,10 @@
 "use client";
 
-import data from "@/json/landingPage.json";
-
 import Hero from "./Hero";
 import MostPicked from "./MostPicked";
 import { useRef } from "react";
 
-const Main = () => {
+const Main = ({ data }) => {
   const refMostPicked = useRef();
 
   return (

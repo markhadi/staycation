@@ -5,6 +5,40 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 
+const PlaceItem = ({ place, firstItemRef }) => {
+  return (
+    <div
+      className={`w-full snap-start relative rounded-2xl overflow-hidden ${
+        firstItemRef ? "md:row-span-2" : ""
+      } group`}
+      ref={firstItemRef}
+    >
+      <Image
+        src={place.imageUrl}
+        alt={place.name}
+        width={327}
+        height={215}
+        draggable={false}
+        className="w-full h-full object-auto scale-105 group-hover:scale-100 transition-all duration-300"
+      />
+
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent  to-[rgba(0,0,0,0.50)] flex flex-col justify-between">
+        <span className="bg-pink-500 rounded-bl-2xl w-max self-end py-2 px-7 text-white leading-[1.7em] font-light">
+          <strong className="font-medium">{`$${place.price}`}</strong>
+          {` per ${place.unit}`}
+        </span>
+        <Link
+          href="/"
+          className="flex flex-col text-white p-6 font-normal w-max"
+        >
+          <span className="text-[16px] sm:text-[20px]">{place.name}</span>
+          <span className="font-light sm:text-[15px]">{`${place.city}, ${place.country}`}</span>
+        </Link>
+      </div>
+    </div>
+  );
+};
+
 const MostPicked = ({ data, refMostPicked }) => {
   const carouselRef = useRef(null);
   const firstItemRef = useRef(null);
@@ -80,39 +114,11 @@ const MostPicked = ({ data, refMostPicked }) => {
           className={`grid grid-flow-col auto-cols-[100%]  xs:auto-cols-[calc((100%/2)-8px)] sm-800:auto-cols-[calc((100%/3)-11px)] xs:gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth md:grid-cols-3 md:grid-rows-2 md:gap-[30px] md:auto-cols-auto`}
         >
           {data.map((place, index) => (
-            <div
+            <PlaceItem
               key={index}
-              className={`w-full snap-start relative rounded-2xl overflow-hidden ${
-                index === 0 ? "md:row-span-2" : ""
-              }`}
-              ref={firstItemRef}
-            >
-              <Image
-                src={place.imageUrl}
-                alt={place.name}
-                width={327}
-                height={215}
-                draggable={false}
-                className="w-full h-full object-auto"
-              />
-
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent  to-[rgba(0,0,0,0.50)] flex flex-col justify-between ">
-                <span className="bg-pink-500 rounded-bl-2xl w-max self-end py-2 px-7 text-white leading-[1.7em] font-light">
-                  {" "}
-                  <strong className="font-medium">{`$${place.price}`}</strong>{" "}
-                  {`per ${place.unit}`}
-                </span>
-                <Link
-                  href="/"
-                  className="flex flex-col text-white p-6 font-normal w-max"
-                >
-                  <span className="text-[16px] sm:text-[20px]">
-                    {place.name}
-                  </span>
-                  <span className="font-light sm:text-[15px]">{`${place.city}, ${place.country}`}</span>
-                </Link>
-              </div>
-            </div>
+              place={place}
+              firstItemRef={index === 0 ? firstItemRef : null}
+            />
           ))}
         </div>
 
