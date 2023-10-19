@@ -37,3 +37,7 @@ body {
 button {
   box-shadow: 0px 8px 15px 0px rgba(50, 82, 223, 0.3);
 }
+
+.dragging {
+  @apply cursor-grab select-none md:cursor-default;
+}

@@ -1,7 +1,14 @@
 import Image from "next/image";
 
-const Hero = ({ data }) => {
+const Hero = ({ data, refMostPicked }) => {
   const dataItems = Object.entries(data);
+
+  const showMostPicked = () => {
+    window.scrollTo({
+      top: refMostPicked.current.offsetTop - 30,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <section className="flex flex-col gap-2 w-full max-w-1140 overflow-hidden sm:flex-row sm:px-6 sm:mt-16 sm:justify-between md:px-0">
@@ -13,6 +20,7 @@ const Hero = ({ data }) => {
         <Image
           src={"/assets/images/hero.jpg"}
           alt="hero image of a destination"
+          priority={true}
           width={375}
           height={295}
           className="w-full sm:max-w-[560px] transition-all duration-300"
@@ -30,7 +38,10 @@ const Hero = ({ data }) => {
           We provide what you need to enjoy your holiday with family. Time to
           make another memorable moments.
         </p>
-        <button className="px-10 py-2 text-[18px] leading-[1.7em] bg-blue-500 text-white rounded-md mb-10 transition-all duration-300 sm:mb-20 hover:bg-blue-900">
+        <button
+          onClick={showMostPicked}
+          className="px-10 py-2 text-[18px] leading-[1.7em] bg-blue-500 text-white rounded-md mb-10 transition-all duration-300 sm:mb-20 hover:bg-blue-900"
+        >
           Show Me Now
         </button>
         <div className="flex gap-3 sm:gap-7">

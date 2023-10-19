@@ -1,10 +1,18 @@
-import Hero from "./Hero";
+"use client";
+
 import data from "@/json/landingPage.json";
 
+import Hero from "./Hero";
+import MostPicked from "./MostPicked";
+import { useRef } from "react";
+
 const Main = () => {
+  const refMostPicked = useRef();
+
   return (
-    <main className="flex flex-col items-center">
-      <Hero data={data.hero} />
+    <main className="flex flex-col gap-8 items-center sm:gap-16">
+      <Hero refMostPicked={refMostPicked} data={data.hero} />
+      <MostPicked refMostPicked={refMostPicked} data={data.mostPicked} />
     </main>
   );
 };
