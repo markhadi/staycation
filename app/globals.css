@@ -34,10 +34,25 @@ body {
   transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-button {
+.btn {
   box-shadow: 0px 8px 15px 0px rgba(50, 82, 223, 0.3);
 }
 
 .dragging {
   @apply cursor-grab select-none md:cursor-default;
+}
+
+.slick-next {
+  @apply !right-0 z-10;
+}
+
+.slick-prev {
+  @apply !left-0 z-10;
+}
+
+.slick-slide > div {
+  @apply xs:!mx-2;
+}
+.slick-list {
+  @apply xs:!-mx-2;
 }

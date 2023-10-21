@@ -1,7 +1,7 @@
 "use client";
 
 import Hero from "./Hero";
-import MostPicked from "./MostPicked";
+import MostPick from "./MostPick";
 import { useRef } from "react";
 
 const Main = ({ data }) => {
@@ -10,7 +10,7 @@ const Main = ({ data }) => {
   return (
     <main className="flex flex-col gap-8 items-center sm:gap-16">
       <Hero refMostPicked={refMostPicked} data={data.hero} />
-      <MostPicked refMostPicked={refMostPicked} data={data.mostPicked} />
+      <MostPick refMostPicked={refMostPicked} data={data.mostPicked} />
     </main>
   );
 };

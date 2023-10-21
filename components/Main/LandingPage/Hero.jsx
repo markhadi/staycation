@@ -40,7 +40,7 @@ const Hero = ({ data, refMostPicked }) => {
         </p>
         <button
           onClick={showMostPicked}
-          className="px-10 py-2 text-[18px] leading-[1.7em] bg-blue-500 text-white rounded-md mb-10 transition-all duration-300 sm:mb-20 hover:bg-blue-900"
+          className="btn px-10 py-2 text-[18px] leading-[1.7em] bg-blue-500 text-white rounded-md mb-10 transition-all duration-300 sm:mb-20 hover:bg-blue-900"
         >
           Show Me Now
         </button>
